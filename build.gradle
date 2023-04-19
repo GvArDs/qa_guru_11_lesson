@@ -9,8 +9,8 @@ allure {
     }
     adapter {
         aspectjWeaver.set(true)  //обработка анотации @Step
-        frameworks{
-            junit5{
+        frameworks {
+            junit5 {
                 adapterVersion.set("2.19.0")
             }
         }
@@ -22,12 +22,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(
-            'com.codeborne:selenide:6.12.4',
+    testImplementation('com.codeborne:selenide:6.12.4',
             'org.junit.jupiter:junit-jupiter:5.9.2',
             'com.codeborne:selenide:6.7.2',
-            'io.qameta.allure:allure-selenide:2.19.0'
-    )
+            'io.qameta.allure:allure-selenide:2.19.0')
 }
 
 tasks.withType(JavaCompile) {
@@ -36,4 +34,5 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
